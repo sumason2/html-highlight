@@ -1,6 +1,6 @@
 {
-  "name": "PHP Getting Started",
-  "description": "A barebones PHP app that makes use of the Silex web framework",
-  "repository": "https://github.com/heroku/php-getting-started",
+  "name": "HTML Fetch and Tag Highlighter.",
+  "description": "A PHP page that fetches HTML and highlights tags.",
+  "repository": "https://github.com/sumason2/html-highlight.git",
   "addons": []
 }
