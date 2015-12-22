@@ -4,12 +4,10 @@ function fetchURL() {
 
     // get HTML response from URL
     $.get("/fetchURL.php?url=" + url, function(data,status) {
-        var $data = $(data);
-
         // Iterate over tags
         var tags = {};
-        $data.each(function() {
-            var tagName = this.tagName.toLowerCase();
+        $(data).each(function() {
+            var tagName = this.nodeName.toLowerCase();
             if (!(tagName in tags)) {
                 tags[tagName] = 0;
             }
