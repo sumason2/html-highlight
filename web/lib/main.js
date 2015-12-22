@@ -14,7 +14,7 @@ function parseTagsFromHTML(string) {
     // Iterate over tags
     var tags = {};
     $(string).find("div").each(function(index, element) {
-        var tagName = element.className.toLowerCase();
+        var tagName = String(element.className.toLowerCase());
 
         // Ignore Comments.
         if (tagName.matched(/^!/)) {
