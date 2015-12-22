@@ -9,7 +9,7 @@ function fetchURL() {
         // Iterate over tags
         var tags = {};
         $data.each(function() {
-            var tagName = $(this).prop("tagName").toLowerCase();
+            var tagName = this.prop("tagName").toLowerCase();
             tags[tagName]++;
         });
 
