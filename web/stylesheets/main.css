@@ -10,3 +10,18 @@ td.url {
 .url input {
   width: 100%
 }
+
+div.code {
+    font-family: "Courier New";
+    line-height: 1.2em;
+    background: #FFF9DE;
+    border: solid;
+    border-style: dotted;
+    border-width: 1px;
+    border-color: blue;
+    color: #4D4169;
+    padding: 10px;
+
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
