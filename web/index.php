@@ -1,5 +1,7 @@
 <?php
 
+header("Access-Control-Allow-Origin: *");
+
 require('../vendor/autoload.php');
 
 $app = new Silex\Application();
@@ -14,8 +16,6 @@ $app->register(new Silex\Provider\MonologServiceProvider(), array(
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/views',
 ));
-
-header("Access-Control-Allow-Origin: *");
 
 // Our web handlers
 
