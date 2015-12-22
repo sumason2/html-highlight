@@ -39,7 +39,13 @@ function fetchURL() {
         // Replace tags with div tags.
         var string = data.replace(/<[^>]*>/g, function(matched) {
             var newString = matched;
-            if (matched.match(/<\//)) {
+            if (matched.match(/<!.*>/)) {
+                newString = matched.replace(
+                    /<!(.*)>/,
+                    "<div class=\"!comment\"><span class=\"highlight.$1\">&lt;!$1&gt;</span></div>"
+                );
+            }
+            else if (matched.match(/<\//)) {
                 newString = matched.replace(
                     /<\/([^>]*)>/,
                     "<span class=\"highlight.$1\">&lt;/$1&gt;</span></div>"
