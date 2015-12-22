@@ -17,7 +17,7 @@ function parseTagsFromHTML(string) {
         var tagName = element.className.toLowerCase();
 
         // Ignore Comments.
-        if (tagName.match(/^!/)) {
+        if (! tagName.match(/^!/)) {
             // Initialize value at 0 if it doesn't exist.
             if (!(tagName in tags)) {
                 tags[tagName] = 0;
