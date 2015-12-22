@@ -3,7 +3,10 @@ function fetchURL() {
     var url = $("#url-input").val();
 
     // get HTML response from URL
-    $.ajax({ url: url, success: function(data) { alert(data); } });
+    $.get({ url: url, success: function(data,status) {
+        alert("Data: " + data + "Status: " + status);
+    } });
+
     $("#html-results").html("Place URL Results here...");
     return false;
 }
