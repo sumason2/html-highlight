@@ -1,10 +1,12 @@
 <div class="controls">
-    <h3>Enter a URL, then press "Submit".</h3>
+    <h3>Enter a URL, then press "Submit"</h3>
     <form onsubmit="return fetchURL();">
     <table>
         <tr>
             <td>URL:</td>
-            <td><input name="url" type="text" /></td>
+            <td class="url">
+                <input name="url" type="text" />
+            </td>
             <td><input type="submit" value="Submit" /></td>
         </tr>
     </table>
