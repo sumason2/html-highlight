@@ -6,10 +6,10 @@ function fetchURL() {
     $.get("/fetchURL.php?url=" + url, function(data,status) {
         // Replace tags with div tags.
         var string = data.replace(
-            /<([^>\/ ]+)/,
+            /<([^>\/ ]+)/g,
             "<div class=\"find.$1\"> &lt;$1"
         ).replace(
-            /<\/([^> ]+)>/,
+            /<\/([^> ]+)>/g,
             "&lt;/$1&gt;</div>"
         );
 
