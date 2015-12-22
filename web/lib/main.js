@@ -16,7 +16,7 @@ function fetchURL() {
         // Iterate over tags
         var tags = {};
         $(string).find("div").each(function(index, element) {
-            var tagName = element.attr('class').toLowerCase();
+            var tagName = element.className.toLowerCase();
             if (!(tagName in tags)) {
                 tags[tagName] = 0;
             }
