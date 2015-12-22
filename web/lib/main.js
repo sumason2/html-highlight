@@ -4,9 +4,25 @@ function fetchURL() {
 
     // get HTML response from URL
     $.get("/fetchURL.php?url=" + url, function(data,status) {
-        alert("Data: " + data + "Status: " + status);
+        // Iterate over tags
+        var tags = {};
+        $data.each(function() {
+            var tagName = $(this).prop("tagName").toLowerCase();
+            tags[tagName]++;
+        });
+
+        // This should probably be replaced with something like Handlebars.
+        var summary = '<table><tr><th>Tag</th><th>Appearances</th></tr>';
+        for (var key in tags) {
+            summary = summary + '<tr><td>' +
+                key       + ':</td><td>' +
+                tags[key] + '</td></tr>';
+        }
+        summary = summary + '</table>'; 
+        $("#html-results").html(summary);
+        alert("Status: " + status);
     });
 
-    $("#html-results").html("Place URL Results here...");
+    $("#html-results").html("Fetching and processing HTML data...");
     return false;
 }
