@@ -6,7 +6,7 @@ function fetchURL() {
     $.get("/fetchURL.php?url=" + url, function(data,status) {
         // Iterate over tags
         var tags = {};
-        $(data).find().each(function(index, element) {
+        $(data).find("*").each(function(index, element) {
             var tagName = element.nodeName.toLowerCase();
             if (!(tagName in tags)) {
                 tags[tagName] = 0;
