@@ -17,7 +17,7 @@ function parseTagsFromHTML(string) {
         var tagName = element.className.toLowerCase();
 
         // Ignore Comments.
-        if (tagName.slice(0,1) != "!") {
+        if (tagName.matched(/^!/)) {
             // Initialize value at 0 if it doesn't exist.
             if (!(tagName in tags)) {
                 tags[tagName] = 0;
@@ -37,13 +37,22 @@ function fetchURL() {
     // get HTML response from URL
     $.get("/fetchURL.php?url=" + url, function(data,status) {
         // Replace tags with div tags.
-        var string = data.replace(
-            /<([^>\/ ]+)([^>]*)>/g,
-            "<div class=\"$1\"><span class=\"highlight.$1\">&lt;$1$2&gt;</span>"
-        ).replace(
-            /<\/([^> ]+)>/g,
-            "<span class=\"highlight.$1\">&lt;/$1&gt;</span></div>"
-        );
+        var string = data.replace(/<[^>]*>/g, function(matched) {
+            var newString = matched;
+            if (matched.match(/<\//)) {
+                newString = matched.replace(
+                    /<\/([^>]*)>/,
+                    "<span class=\"highlight.$1\">&lt;/$1&gt;</span></div>"
+                );
+            }
+            else {
+                newString = matched.replace(
+                    /<([^>\/ ]+)([^>]*)>/,
+                    "<div class=\"$1\"><span class=\"highlight.$1\">&lt;$1$2&gt;</span>"
+                );
+            }
+            return newString;
+        }); 
 
         var tags    = parseTagsFromHTML(string);
         var summary = generateSummaryTable(tags);
