@@ -4,9 +4,15 @@ function fetchURL() {
 
     // get HTML response from URL
     $.get("/fetchURL.php?url=" + url, function(data,status) {
+        // Replace tags with div tags.
+        var string = data.replace(
+            /<([^> ]+)/,
+            "<div class=\"find.$1\"> &lt;$1"
+        );
+
         // Iterate over tags
         var tags = {};
-        $(data).$('html').find("*").each(function(index, element) {
+        $(string).find("div").each(function(index, element) {
             var tagName = element.nodeName.toLowerCase();
             if (!(tagName in tags)) {
                 tags[tagName] = 0;
