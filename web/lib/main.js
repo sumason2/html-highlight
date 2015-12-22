@@ -6,8 +6,11 @@ function fetchURL() {
     $.get("/fetchURL.php?url=" + url, function(data,status) {
         // Replace tags with div tags.
         var string = data.replace(
-            /<([^> ]+)/,
+            /<([^>\/ ]+)/,
             "<div class=\"find.$1\"> &lt;$1"
+        ).replace(
+            /<\/([^> ]+)>/,
+            "&lt;/$1&gt;</div>"
         );
 
         // Iterate over tags
@@ -28,8 +31,8 @@ function fetchURL() {
                 tags[key] + '</td></tr>';
         }
         summary = summary + '</table>'; 
-        $("#html-results").html(summary);
-        alert("Status: " + status);
+        $("#summary").html(summary);
+        $("#html-results").html(string);
     });
 
     $("#html-results").html("Fetching and processing HTML data...");
