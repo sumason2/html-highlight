@@ -83,5 +83,5 @@ function fetchURL() {
 
 function clickTag(tagName) {
     $('*[class^="text"]').css("background-color", "");
-    $('*[class="highlight-' + tagName + '"]').css("background-color", "blue");
+    $('*[class="highlight.' + tagName + '"]').css("background-color", "blue");
 }
