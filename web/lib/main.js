@@ -40,23 +40,34 @@ function fetchURL() {
         var string = data.replace(/<[^>]*>/g, function(matched) {
             var newString = matched;
             if (matched.match(/<!.*>/)) {
+                // We have a comment.
                 newString = matched.replace(
                     /<!(.*)>/,
                     "<div class=\"!comment\"><span class=\"highlight.$1\">&lt;!$1&gt;</span></div>"
                 );
             }
             else if (matched.match(/<\//)) {
+                // We have a closing tag.
                 newString = matched.replace(
                     /<\/([^>]*)>/,
                     "<span class=\"highlight.$1\">&lt;/$1&gt;</span></div>"
                 );
             }
+            else if (matched.match(/<[^>\/ ]+[^>]*\/>/)) {
+                // We have an empty-element tag.
+                newString = matched.replace(
+                    /<([^>\/ ]+)([^>]*)>/,
+                    "<div class=\"$1\"><span class=\"highlight.$1\">&lt;$1$2&gt;</span></div>"
+                );
+            }
             else {
+                // We have a opening tag.
                 newString = matched.replace(
                     /<([^>\/ ]+)([^>]*)>/,
                     "<div class=\"$1\"><span class=\"highlight.$1\">&lt;$1$2&gt;</span>"
                 );
             }
+
             return newString;
         }); 
 
