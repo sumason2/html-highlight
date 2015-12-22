@@ -14,10 +14,10 @@ function parseTagsFromHTML(string) {
     // Iterate over tags
     var tags = {};
     $(string).find("div").each(function(index, element) {
-        var tagName = String(element.className.toLowerCase());
+        var tagName = element.className.toLowerCase();
 
         // Ignore Comments.
-        if (tagName.matched(/^!/)) {
+        if (tagName.match(/^!/)) {
             // Initialize value at 0 if it doesn't exist.
             if (!(tagName in tags)) {
                 tags[tagName] = 0;
