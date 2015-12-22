@@ -2,7 +2,7 @@ function generateSummaryTable(tags) {
     // This should probably be replaced with something like Handlebars.
     var summary = '<table><tr><th>Tag</th><th>Appearances</th></tr>';
     for (var key in tags) {
-        summary = summary + '<tr><td><a onclick="clickTag(' + key + ')">' +
+        summary = summary + '<tr><td><a onclick="clickTag(\'' + key + '\')">' +
             key       + '</a></td><td>' +
             tags[key] + '</td></tr>';
     }
@@ -83,5 +83,5 @@ function fetchURL() {
 
 function clickTag(tagName) {
     $('*[class^="text"]').css("background-color", "");
-    $('*[class="highlight-' + $tagName + '"]').css("background-color", "blue");
+    $('*[class="highlight-' + tagName + '"]').css("background-color", "blue");
 }
