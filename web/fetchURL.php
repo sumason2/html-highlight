@@ -1,7 +1,9 @@
 <?php
 
-$html = file_get_contents('http://www.slack.com');
+$url = htmlspecialchars($_GET["url"]);
 
-echo "$html\n"
+$html = file_get_contents(url);
+
+echo "$html"
 
 ?>
