@@ -25,3 +25,11 @@ div.code {
     overflow-wrap: break-word;
     word-wrap: break-word;
 }
+
+.summary table {
+    width: 25%
+}
+
+.summary th {
+    text-align: left;
+}
