@@ -9,7 +9,10 @@ function fetchURL() {
         // Iterate over tags
         var tags = {};
         $data.each(function() {
-            var tagName = this.nodeName.toLowerCase();
+            var tagName = this.tagName.toLowerCase();
+            if (!(tagName in tags)) {
+                tags[tagName] = 0;
+            }
             tags[tagName]++;
         });
 
