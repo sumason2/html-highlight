@@ -1,3 +1,14 @@
+function findTags(node, tags) {
+    node.each(function() {
+        findTags(this, tags);
+    });
+    var tagName = node.nodeName.toLowerCase();
+    if (!(tagName in tags)) {
+        tags[tagName] = 0;
+    }
+    tags[tagName]++;
+}
+
 function fetchURL() {
     // grab URL from input.
     var url = $("#url-input").val();
@@ -6,13 +17,7 @@ function fetchURL() {
     $.get("/fetchURL.php?url=" + url, function(data,status) {
         // Iterate over tags
         var tags = {};
-        $(data).each(function() {
-            var tagName = this.nodeName.toLowerCase();
-            if (!(tagName in tags)) {
-                tags[tagName] = 0;
-            }
-            tags[tagName]++;
-        });
+        findTags($(data), tags);
 
         // This should probably be replaced with something like Handlebars.
         var summary = '<table><tr><th>Tag</th><th>Appearances</th></tr>';
