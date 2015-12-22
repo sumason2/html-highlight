@@ -4,7 +4,7 @@ function fetchURL() {
 
     // get HTML response from URL
     $.get("/fetchURL.php?url=" + url, function(data,status) {
-        var html = $.parseHTML(data);
+        var html = $.parseHTML('<div>' + data + '</div>');
 
         // Iterate over tags
         var tags = {};
