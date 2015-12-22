@@ -3,7 +3,7 @@ function fetchURL() {
     var url = $("#url-input").val();
 
     // get HTML response from URL
-    $.get(url, function(data,status) {
+    $.get("/fetchURL.php?url=" + url, function(data,status) {
         alert("Data: " + data + "Status: " + status);
     });
 
