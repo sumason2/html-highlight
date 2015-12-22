@@ -15,6 +15,8 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/views',
 ));
 
+header("Access-Control-Allow-Origin: *");
+
 // Our web handlers
 
 $app->get('/', function() use($app) {
