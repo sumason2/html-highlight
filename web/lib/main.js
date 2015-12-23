@@ -2,7 +2,8 @@ function generateSummaryTable(tags) {
     // This should probably be replaced with something like Handlebars.
     var summary = '<table><tr><th>Tag</th><th>Appearances</th></tr>';
     for (var key in tags) {
-        summary = summary + '<tr><td><a onclick="clickTag(\'' + key + '\')">' +
+        summary = summary
+                      + '<tr><td><a onclick="clickTag(\'' + key + '\')">' +
             key       + '</a></td><td>' +
             tags[key] + '</td></tr>';
     }
@@ -74,18 +75,30 @@ function fetchURL() {
         var tags    = parseTagsFromHTML(string);
         var summary = generateSummaryTable(tags);
 
+        // Rewrite the summary section and make the section visible.
         $("#summary").html(summary);
-        $("#summary").css("visibility", "");
+        $("#summary").css("visibility", "unset");
 
+        // Rewrite the code section and make the section visible.
         $("#html-results").html(string);
-        $("#html-results").css("visibility", "");
+        $("#html-results").css("visibility", "unset");
     });
 
     $("#html-results").html("Fetching and processing HTML data...");
+
+    // Return false so the page is not refreshed. This function is called
+    // from a submit button.
     return false;
 }
 
 function clickTag(tagName) {
-    $('*[class^="highlight."]').css("background-color", "");
-    $('*[class="highlight.' + tagName + '"]').css("background-color", "yellow");
+    // Unset all highlights before highlighting another tag.
+    $('*[class^="highlight."]').css(
+        "background-color", ""
+    );
+
+    // Highlight all tags matching the selection.
+    $('*[class="highlight.' + tagName + '"]').css(
+        "background-color", "yellow"
+    );
 }
