@@ -24,9 +24,11 @@ div.code {
 
     overflow-wrap: break-word;
     word-wrap: break-word;
+
+    visibility: hidden;
 }
 
-.summary div {
+div.summary {
     visibility: hidden;
 }
 

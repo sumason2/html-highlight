@@ -78,6 +78,7 @@ function fetchURL() {
         $("#summary").css("visibility", "");
 
         $("#html-results").html(string);
+        $("#html-results").css("visibility", "");
     });
 
     $("#html-results").html("Fetching and processing HTML data...");
