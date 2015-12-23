@@ -41,14 +41,14 @@ td.url {
 
 .summary p {
     text-align: center;
-    margin: 0px;
+    margin: 0px 0px 10px;
 }
 
 div.layout-summary {
     height: 80%;
     width: 15%;
     float: left;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 div.layout-code {
