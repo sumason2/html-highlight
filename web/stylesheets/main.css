@@ -56,13 +56,12 @@ div.layout-code {
     overflow: auto;
 }
 
-div.summary {
-    margin: 10px 0px 0px;
+.hidden {
     visibility: hidden;
 }
 
-div.summary-table {
-    visibility: hidden;
+div.summary {
+    margin: 10px 0px 0px;
 }
 
 .summary table {
@@ -99,6 +98,4 @@ div.code {
     overflow: auto;
     overflow-wrap: break-word;
     word-wrap: break-word;
-
-    visibility: hidden;
 }

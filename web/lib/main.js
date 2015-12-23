@@ -50,11 +50,11 @@ function fetchURL() {
         // Check if we received data.
         if (data.match(/^$/)) {
             $("#html-results").html("Did not find HTML data...");
-            $("#html-results").css("visibility", "unset");
+            $("#html-results").removeClass("hidden");
 
             $("#summary-table").html('');
-            $("#summary").css("visibility", "hidden");
-            $("#summary-table").css("visibility", "hidden");
+            $("#summary").addClass("hidden");
+            $("#summary-table").addClass("hidden");
 
             return false;
         }
@@ -100,16 +100,16 @@ function fetchURL() {
 
         // Rewrite the summary section and make the section visible.
         $("#summary-table").html(summary);
-        $("#summary").css("visibility", "unset");
-        $("#summary-table").css("visibility", "unset");
+        $("#summary").removeClass("hidden");
+        $("#summary-table").removeClass("hidden");
 
         // Rewrite the code section and make the section visible.
         $("#html-results").html(string);
-        $("#html-results").css("visibility", "unset");
+        $("#html-results").removeClass("hidden");
     });
 
     $("#html-results").html("Fetching and processing HTML data...");
-    $("#html-results").css("visibility", "unset");
+    $("#html-results").removeClass("hidden");
 
     // Return false so the page is not refreshed. This function is called
     // from a submit button.
