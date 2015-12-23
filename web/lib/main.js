@@ -38,7 +38,6 @@ function escapeScriptContents(data) {
         element.innerHTML = replaced;
     });
 
-    alert(html.prop('innerHTML'));
     return html.prop('innerHTML');
 }
 
