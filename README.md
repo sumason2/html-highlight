@@ -9,15 +9,16 @@ very little PHP that I wrote.  Most of the logic was in JavaScript and jQuery.
 I've used JavaScript before and had only used jQuery once before this project.
 
 # Development Environment
-The web app is deployed at: http://html-highlight.herokuapp.com/
+The source code can be found at: https://github.com/sumason2/html-highlight
+The web app is deployed at: http://html-highlight.herokuapp.com
 
 I didn't not spend time setting up a separate development environment from
-production and the heroku app is setup to automatically publish from the
-release branch.  This means that usually when I wanted to test a fix or make a
-change I needed to commit the code.  Usually this is not the case since I've
-been able to copy the files onto a development machine and reboot the service
-to test changes.  This allows me to only commit code I know works.  This is why
-there are over 87 commits to the repository.
+'production' and the heroku app is setup to automatically publish from the
+release branch.  This means that when I wanted to test a fix or make a change I
+needed to commit the code.  Usually this is not the case since I've been able
+to copy the files onto a development machine and reboot the service to test
+changes.  This allows me to only commit code I know works.  This is why there
+are over 87 commits to the repository.
 
 In the interest of being transparent and honest I've decided not to make a
 separate, cleaner repository with less commits.
@@ -47,7 +48,7 @@ me to my final problem.
 The final problem I encountered was script code that was being parsed as tags.
 The downside to writing your own interpreter is that you usually don't have
 time to properly write your own parser. There are already parsers that exist
-who were written by people who know more about parsers than you and do have
+that were written by people who know more about parsers than you and do have
 time to properly write them.  Doing string replacing on a language is a lot
 like writing your own parser, it will cover about 90% of the cases.  The
 problem is if someone decides to put HTML like elements in their web page, or
