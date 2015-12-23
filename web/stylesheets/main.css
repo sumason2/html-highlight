@@ -5,10 +5,9 @@ html {
 body {
     font-family: "Helvetica Neue";
     font-weight: 300;
-    width: 100%
-    height: 100%;
     position: absolute;
-    top: 0px;
+    width: 100%;
+    height: 100%;
     margin: 0px;
     padding: 0px;
 }
@@ -65,15 +64,17 @@ div.summary {
     width: 25%;
 }
 
-.summary th {
-    text-align: left;
+#summary-table th {
+    padding: 0px 5px 0px 0px;
 }
 
 #summary-table td {
     text-align: right;
+    padding: 2px 15px 2px 0px;
 }
 
 #summary-table td.active {
+    width: 100%;
     text-align: center;
     cursor: pointer;
 }
@@ -87,10 +88,6 @@ div.code {
     font-family: "Courier New";
     line-height: 1.2em;
     background: #FFF9DE;
-    border: solid;
-    border-style: dotted;
-    border-width: 1px;
-    border-color: blue;
     color: #4D4169;
     padding: 10px;
 
