@@ -73,7 +73,10 @@ function fetchURL() {
 
         var tags    = parseTagsFromHTML(string);
         var summary = generateSummaryTable(tags);
+
         $("#summary").html(summary);
+        $("#summary").css("visibility", "");
+
         $("#html-results").html(string);
     });
 

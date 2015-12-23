@@ -26,6 +26,10 @@ div.code {
     word-wrap: break-word;
 }
 
+.summary div {
+    visibility: hidden;
+}
+
 .summary table {
     width: 25%
 }
