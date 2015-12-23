@@ -9,8 +9,13 @@ very little PHP that I wrote.  Most of the logic was in JavaScript and jQuery.
 I've used JavaScript before and had only used jQuery once before this project.
 
 # Development Environment
-The source code can be found at: https://github.com/sumason2/html-highlight
-The web app is deployed at: http://html-highlight.herokuapp.com
+The source code can be found at:
+
+https://github.com/sumason2/html-highlight
+
+The web app is deployed at:
+
+http://html-highlight.herokuapp.com
 
 I didn't not spend time setting up a separate development environment from
 'production' and the heroku app is setup to automatically publish from the
