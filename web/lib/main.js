@@ -76,7 +76,7 @@ function fetchURL() {
         var summary = generateSummaryTable(tags);
 
         // Rewrite the summary section and make the section visible.
-        $("#summary").html(summary);
+        $("#summary-table").html(summary);
         $("#summary").css("visibility", "unset");
 
         // Rewrite the code section and make the section visible.
