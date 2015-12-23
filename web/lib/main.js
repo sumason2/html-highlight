@@ -37,6 +37,8 @@ function escapeScriptContents(data) {
         var replaced = this.html().replace(/</g, "&lt;").replace(/>/g, "&gt;");
         this.html(replaced);
     });
+
+    return data;
 }
 
 function fetchURL() {
