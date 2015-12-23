@@ -60,7 +60,7 @@ div.summary {
     visibility: hidden;
 }
 
-#summary-table div {
+div.summary-table {
     visibility: hidden;
 }
 
