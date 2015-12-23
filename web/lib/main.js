@@ -32,12 +32,13 @@ function parseTagsFromHTML(string) {
 }
 
 function escapeScriptContents(data) {
-    $(data).find('script').each(function(index, element) {
+    var html = $(data);
+    html.find('script').each(function(index, element) {
         var replaced = element.innerHTML.replace(/</g, "&lt;").replace(/>/g, "&gt;");
         element.innerHTML = replaced;
     });
 
-    return data;
+    return html.wrap("<div>").parent().html();
 }
 
 function fetchURL() {
