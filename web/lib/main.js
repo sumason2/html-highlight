@@ -31,6 +31,13 @@ function parseTagsFromHTML(string) {
     return tags;
 }
 
+function escapeScriptContents(data) {
+    $(data).find('script').each(function(index, element) {
+        var replaced = this.html().replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        this.html(replaced);
+    });
+}
+
 function fetchURL() {
     // grab URL from input.
     var url = $("#url-input").val();
@@ -40,11 +47,18 @@ function fetchURL() {
         // Check if we received data.
         if (data.match(/^$/)) {
             $("#html-results").html("Did not find HTML data...");
+            $("#html-results").css("visibility", "unset");
+
+            $("#summary-table").html('');
+            $("#summary").css("visibility", "hidden");
+            $("#summary-table").css("visibility", "hidden");
+
             return false;
         }
 
         // Replace tags with div tags.
-        var string = data.replace(/<[^>]*>/g, function(matched) {
+        var string = escapeScriptContents(data);
+        string = string.replace(/<[^>]*>/g, function(matched) {
             var newString = matched;
             if (matched.match(/<!.*>/)) {
                 // We have a comment.
@@ -92,6 +106,7 @@ function fetchURL() {
     });
 
     $("#html-results").html("Fetching and processing HTML data...");
+    $("#html-results").css("visibility", "unset");
 
     // Return false so the page is not refreshed. This function is called
     // from a submit button.
