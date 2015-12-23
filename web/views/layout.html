@@ -7,15 +7,11 @@
     <body>
         {% include 'controls.html' %}
         {% include 'summary-instructions.html' %}
-        <table class="layout">
-            <tr>
-                <td class="layout-summary">
-                    {% include 'summary.html' %}
-                </td>
-                <td class="layout-code">
-                    {% include 'display-html.html' %}
-                </td>
-            </tr>
-        </table>
+        <div class="layout-summary">
+            {% include 'summary.html' %}
+        </div>
+        <div class="layout-code">
+            {% include 'display-html.html' %}
+        </div>
     </body>
 </html>
