@@ -33,8 +33,8 @@ function parseTagsFromHTML(string) {
 
 function escapeScriptContents(data) {
     $(data).find('script').each(function(index, element) {
-        var replaced = this.html().replace(/</g, "&lt;").replace(/>/g, "&gt;");
-        this.html(replaced);
+        var replaced = element.html().replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        element.html(replaced);
     });
 
     return data;
