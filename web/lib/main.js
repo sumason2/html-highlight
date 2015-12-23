@@ -32,15 +32,15 @@ function parseTagsFromHTML(string) {
 }
 
 function escapeScriptContents(data) {
+    var html = $(data).wrap("<div class='new'></div>").parent();
     var html = $(data);
     html.find('script').each(function(index, element) {
         var replaced = element.innerHTML.replace(/</g, "&lt;").replace(/>/g, "&gt;");
         element.innerHTML = replaced;
     });
 
-    alert(html.prop('outerHTML'));
-    alert(html.find('html')[0].outerHTML);
-    return html.find('html')[0].outerHTML;
+    alert(html.prop('innerHTML'));
+    return html.prop('innerHTML');
 }
 
 function fetchURL() {
