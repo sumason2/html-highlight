@@ -33,7 +33,6 @@ function parseTagsFromHTML(string) {
 
 function escapeScriptContents(data) {
     $(data).find('script').each(function(index, element) {
-        alert("Replacing: " this.html());
         var replaced = this.html().replace(/</g, "&lt;").replace(/>/g, "&gt;");
         this.html(replaced);
     });
@@ -61,7 +60,6 @@ function fetchURL() {
 
         // Replace tags with div tags.
         var string = escapeScriptContents(data);
-        alert("Got this: " + string );
         string = string.replace(/<[^>]*>/g, function(matched) {
             var newString = matched;
             if (matched.match(/<!.*>/)) {
