@@ -2,9 +2,9 @@ function generateSummaryTable(tags) {
     // This should probably be replaced with something like Handlebars.
     var summary = '<table><tr><th>Tag</th><th>Appearances</th></tr>';
     for (var key in tags) {
-        summary = summary
-                      + '<tr><td><a onclick="clickTag(\'' + key + '\')">' +
-            key       + '</a></td><td>' +
+        summary = summary + '<tr><td class="active" onclick="clickTag(\''
+                      + key + '\')">' +
+            key       + '</td><td>' +
             tags[key] + '</td></tr>';
     }
     summary = summary + '</table>'; 

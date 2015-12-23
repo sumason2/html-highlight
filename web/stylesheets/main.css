@@ -1,4 +1,9 @@
+html {
+    height: 100%;
+}
+
 body {
+    height: 100%;
     font-family: "Helvetica Neue";
     font-weight: 300;
 }
@@ -35,6 +40,17 @@ td.url {
     margin: 0px;
 }
 
+div.layout-summary {
+    height: 80%;
+    float: left;
+    overflow-y: scroll;
+}
+
+div.layout-code {
+    height: 80%;
+    overflow: auto;
+}
+
 div.summary {
     margin: 10px 0px 0px;
     visibility: hidden;
@@ -46,6 +62,17 @@ div.summary {
 
 .summary th {
     text-align: left;
+}
+
+#summary-table td.active {
+    cursor: pointer;
+    background: #50A0E0;
+    color: #f0f0f0;
+}
+
+#summary-table td.active:hover {
+    background: #70C0FF;
+    color: black;
 }
 
 div.code {
