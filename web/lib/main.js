@@ -37,6 +37,12 @@ function fetchURL() {
 
     // get HTML response from URL
     $.get("/fetchURL.php?url=" + url, function(data,status) {
+        // Check if we received data.
+        if (data.match(/^$/)) {
+            $("#html-results").html("Did not find HTML data...");
+            return false;
+        }
+
         // Replace tags with div tags.
         var string = data.replace(/<[^>]*>/g, function(matched) {
             var newString = matched;
