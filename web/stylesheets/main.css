@@ -46,6 +46,7 @@ td.url {
 
 div.layout-summary {
     height: 80%;
+    width: 15%;
     float: left;
     overflow-y: scroll;
 }
