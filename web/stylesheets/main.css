@@ -60,6 +60,10 @@ div.summary {
     visibility: hidden;
 }
 
+#summary-table div {
+    visibility: hidden;
+}
+
 .summary table {
     width: 25%;
 }

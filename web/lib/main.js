@@ -78,6 +78,7 @@ function fetchURL() {
         // Rewrite the summary section and make the section visible.
         $("#summary-table").html(summary);
         $("#summary").css("visibility", "unset");
+        $("#summary-table").css("visibility", "unset");
 
         // Rewrite the code section and make the section visible.
         $("#html-results").html(string);
