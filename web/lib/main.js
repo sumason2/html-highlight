@@ -38,7 +38,8 @@ function escapeScriptContents(data) {
         element.innerHTML = replaced;
     });
 
-    return html.html();
+    alert(html.find('html')[0].outerHTML);
+    return html.find('html')[0].outerHTML;
 }
 
 function fetchURL() {
